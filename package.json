@@ -1,7 +1,9 @@
 {
-  "name": "react-components",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@edma/react",
+  "version": "1.0.0",
+  "description": "React component library for Team Craft.",
+  "author": "Scott Fowles, Robert Wollny",
+  "license": "MIT",
   "dependencies": {
     "@edma/design-tokens": "^4.6.0",
     "@testing-library/jest-dom": "^5.11.4",
@@ -26,7 +28,9 @@
     "eject": "react-scripts eject",
     "tokens": "rm -rf package-lock.json && npm i @edma/design-tokens --save-dev",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "zeplin-connect": "zeplin connect",
+    "zeplin-connect-dev-mode": "zeplin connect --dev"
   },
   "eslintConfig": {
     "extends": [
@@ -62,6 +66,9 @@
     "@storybook/addon-links": "^6.2.8",
     "@storybook/node-logger": "^6.2.8",
     "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.8"
+    "@storybook/react": "^6.2.8",
+    "@zeplin/cli": "^1.1.10",
+    "@zeplin/cli-connect-react-plugin": "^1.1.1",
+    "@zeplin/cli-connect-storybook-plugin": "^0.5.3"
   }
 }

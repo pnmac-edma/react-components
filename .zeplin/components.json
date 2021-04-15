@@ -1,0 +1,29 @@
+{
+    "plugins": [
+        {
+            "name": "@zeplin/cli-connect-react-plugin"
+        },
+        {
+            "name": "@zeplin/cli-connect-storybook-plugin",
+            "config": {
+                "url": "http://localhost:6006/",
+                "format": "new",
+                "startScript": "storybook"
+            }
+        }
+    ],
+    "styleguides": [
+        "6078037ab310a541d656d952"
+    ],
+    "components": [
+        {
+            "path": "src/components/Button/index.tsx",
+            "zeplinIds": [
+                "60782ba463af6e458cdbd336"
+            ]
+        }
+    ],
+    "github": {
+        "repository": "pnmac-edma/react-components"
+    }
+}

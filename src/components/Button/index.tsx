@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { color } from '@edma/design-tokens';
 
-interface ButtonProps {
+export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset' | undefined;
+  primary?: boolean;
   variant?: 'filled' | 'outlined' | 'link';
-  color?: 'primary' | 'secondary';
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   className?: string;
@@ -17,8 +17,8 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   type = 'button',
+  primary = false,
   variant = 'filled',
-  color = 'primary',
   size = 'medium',
   fullWidth = false,
   className,
@@ -30,8 +30,8 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <StyledButton
+      primary={primary ? primary : false}
       variant={variant ? variant : 'filled'}
-      color={color ? color : 'primary'}
       type={type ? type : undefined}
       aria-label={ariaLabel ? ariaLabel : label}
       size={size ? size : 'medium'}
@@ -39,6 +39,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled ? disabled : undefined}
       onClick={onClick ? onClick : undefined}
       fullWidth={fullWidth ? fullWidth : undefined}
+      label={label}
     >
       <span>{label}</span>
     </StyledButton>
@@ -55,8 +56,8 @@ const StyledButton = styled('button')<ButtonProps>`
   ${props => {
     switch (props.variant) {
       case 'filled':
-        switch (props.color) {
-          case 'primary':
+        switch (props.primary) {
+          case true:
             return `
               position: relative;
               display: inline-block;
@@ -69,7 +70,7 @@ const StyledButton = styled('button')<ButtonProps>`
                 background-color: ${color.b700};
               }
             `;
-          case 'secondary':
+          case false:
             return `
               display: inline-block;
               border: 0;
@@ -84,8 +85,8 @@ const StyledButton = styled('button')<ButtonProps>`
         };
       break;
       case 'outlined':
-        switch (props.color) {
-          case 'primary':
+        switch (props.primary) {
+          case true:
             return `
               display: inline-block;
               border: 2px solid;
@@ -93,7 +94,7 @@ const StyledButton = styled('button')<ButtonProps>`
               background-color: transparent;
               border-color: ${color.b500}
             `;
-          case 'secondary':
+          case false:
             return `
               display: inline-block;
               border: 2px solid;
@@ -104,15 +105,15 @@ const StyledButton = styled('button')<ButtonProps>`
         };
       break;
       case 'link':
-        switch (props.color) {
-          case 'primary':
+        switch (props.primary) {
+          case true:
             return `
               display: contents;
               border: 0;
               color: ${color.b500};
               background-color: transparent;
             `;
-          case 'secondary':
+          case false:
             return `
               display: contents;
               border: 0;
