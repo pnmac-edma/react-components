@@ -13,5 +13,17 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   variant: 'filled',
-  label: 'Button'
+  label: 'Primary'
+};
+
+export const Secondary = Template.bind({});
+Secondary.args = {
+  variant: 'filled',
+  label: 'Secondary'
+};
+
+export const Outlined = Template.bind({});
+Outlined.args = {
+  variant: 'outlined',
+  label: 'Outlined'
 };

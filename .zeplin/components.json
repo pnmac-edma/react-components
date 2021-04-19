@@ -1,29 +1,33 @@
 {
-    "plugins": [
-        {
-            "name": "@zeplin/cli-connect-react-plugin"
-        },
-        {
-            "name": "@zeplin/cli-connect-storybook-plugin",
-            "config": {
-                "url": "http://localhost:6006/",
-                "format": "new",
-                "startScript": "storybook"
-            }
-        }
-    ],
-    "styleguides": [
-        "6078037ab310a541d656d952"
-    ],
-    "components": [
-        {
-            "path": "src/components/Button/index.tsx",
-            "zeplinIds": [
-                "60782ba463af6e458cdbd336"
-            ]
-        }
-    ],
-    "github": {
-        "repository": "pnmac-edma/react-components"
+  "plugins": [
+    {
+      "name": "@zeplin/cli-connect-react-plugin"
+    },
+    {
+      "name": "@zeplin/cli-connect-storybook-plugin",
+      "config": {
+        "url": "http://localhost:6006/",
+        "format": "new",
+        "startScript": "storybook"
+      }
     }
+  ],
+  "styleguides": [
+    "6078037ab310a541d656d952"
+  ],
+  "components": [
+    {
+      "path": "src/components/Button/index.tsx",
+      "zeplinIds": [
+        "60782ba463af6e458cdbd336",
+        "6079b04b9c52af93345d70a3"
+      ]
+    }
+  ],
+  "github": {
+    "repository": "pnmac-edma/react-components"
+  },
+  "projects": [
+    "600ee59c184a357fcb44fd9a"
+  ]
 }
