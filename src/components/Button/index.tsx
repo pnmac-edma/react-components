@@ -5,7 +5,7 @@ import { color } from '@edma/design-tokens';
 export interface ButtonProps {
   type?: 'button' | 'submit' | 'reset' | undefined;
   primary?: boolean;
-  variant?: 'filled' | 'outlined' | 'link';
+  variant?: 'default' | 'link';
   size?: 'small' | 'medium' | 'large';
   fullWidth?: boolean;
   className?: string;
@@ -18,7 +18,7 @@ export interface ButtonProps {
 const Button: React.FC<ButtonProps> = ({
   type = 'button',
   primary = false,
-  variant = 'filled',
+  variant = 'default',
   size = 'medium',
   fullWidth = false,
   className,
@@ -31,7 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <StyledButton
       primary={primary ? primary : false}
-      variant={variant ? variant : 'filled'}
+      variant={variant ? variant : 'default'}
       type={type ? type : undefined}
       aria-label={ariaLabel ? ariaLabel : label}
       size={size ? size : 'medium'}
@@ -60,73 +60,51 @@ const StyledButton = styled('button')<ButtonProps>`
 
   ${props => {
     switch (props.variant) {
-      case 'filled':
-        switch (props.primary) {
-          case true:
-            return `
-              position: relative;
-              display: inline-block;
-              border: 0;
-              color: ${color.white};
-              background-color: ${color.b500};
-              transition: all .2s ease-in-out;
-
-              &:hover {
-                background-color: ${color.b700};
-              }
-            `;
-          case false:
-            return `
-              display: inline-block;
-              border: 0;
-              color: ${color.white};
-              background-color: ${color.v800};
-              transition: all .2s ease-in-out;
-
-              &:hover {
-                background-color: ${color.v900};
-              }
-            `;
-        };
-      break;
-      case 'outlined':
-        switch (props.primary) {
-          case true:
-            return `
-              display: inline-block;
-              border: 2px solid;
-              color: ${color.b500};
-              background-color: transparent;
-              border-color: ${color.b500}
-            `;
-          case false:
-            return `
-              display: inline-block;
-              border: 2px solid;
-              color: ${color.v800};
-              background-color: transparent;
-              border-color: ${color.v800}
-            `;
-        };
-      break;
+      case 'default':
+        return `
+          position: relative;
+          display: inline-block;
+          transition: all .2s ease-in-out;
+        `;
       case 'link':
-        switch (props.primary) {
-          case true:
-            return `
-              display: contents;
-              border: 0;
-              color: ${color.b500};
-              background-color: transparent;
-            `;
-          case false:
-            return `
-              display: contents;
-              border: 0;
-              color: ${color.v800};
-              background-color: transparent;
-            `;
-        }
+        return `
+          display: contents;
+          border: 0;
+          color: ${color.b500};
+          background-color: transparent;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        `;
     }
+  }};
+  ${(props) => {
+    switch (props.primary) {
+      case true:
+        return `
+          border: 0;
+          color: ${color.white};
+          background-color: ${color.b500};
+
+          &:hover {
+            background-color: ${color.b700};
+          }
+        `;
+      case false:
+        return `
+          border: 2px solid;
+          color: ${color.b500};
+          background-color: transparent;
+          border-color: ${color.b500}
+
+          &:hover {
+            border-color: ${color.b700};
+            color: ${color.b700};
+            background-color: ${color.g50};
+          }
+        `;
+    };
   }};
   ${(props) => {
     switch (props.size) {
@@ -151,9 +129,14 @@ const StyledButton = styled('button')<ButtonProps>`
     switch (props.disabled) {
       case true:
         return `
-          color: ${color.g400};
-          background-color: ${color.g300};
+          color: ${color.g300};
+          background-color: ${color.g100};
           cursor: not-allowed;
+
+          &:hover {
+            color: ${color.g300};
+            background-color: ${color.g100};
+          }
         `;
     }
   }}

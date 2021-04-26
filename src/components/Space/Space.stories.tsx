@@ -1,15 +1,13 @@
 import { Story, Meta } from '@storybook/react';
 import Space, { SpaceProps } from '../Space';
+import Button from '../Button';
 
 export default {
   title: 'Atoms/Space',
   component: Space,
 } as Meta;
 
-const Template: Story<SpaceProps> = (args) => <Space {...args}><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div></Space>;
-
-export const Playground = Template.bind({});
-Playground.args = {};
+const Template: Story<SpaceProps> = (args) => <Space {...args}><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/><Button label="Child"/></Space>;
 
 export const Inner = Template.bind({});
 Inner.args = {};
