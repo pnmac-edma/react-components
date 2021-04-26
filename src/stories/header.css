@@ -20,7 +20,3 @@ h1 {
   display: inline-block;
   vertical-align: top;
 }
-
-button + button {
-  margin-left: 10px;
-}

@@ -49,6 +49,7 @@ const Button: React.FC<ButtonProps> = ({
 const StyledButton = styled('button')<ButtonProps>`
   align-self: flex-start;
   border-radius: 60px;
+  border: 0;
   width: ${(props) => props.fullWidth ? '100%' : 'auto'};
   cursor: pointer;
   overflow: hidden;
@@ -69,7 +70,6 @@ const StyledButton = styled('button')<ButtonProps>`
       case 'link':
         return `
           display: contents;
-          border: 0;
           color: ${color.b500};
           background-color: transparent;
 
@@ -83,7 +83,6 @@ const StyledButton = styled('button')<ButtonProps>`
     switch (props.primary) {
       case true:
         return `
-          border: 0;
           color: ${color.white};
           background-color: ${color.b500};
 
@@ -93,15 +92,13 @@ const StyledButton = styled('button')<ButtonProps>`
         `;
       case false:
         return `
-          border: 2px solid;
+          box-shadow:inset 0px 0px 0px 2px ${color.b500}};
           color: ${color.b500};
           background-color: transparent;
-          border-color: ${color.b500}
 
           &:hover {
-            border-color: ${color.b700};
             color: ${color.b700};
-            background-color: ${color.g50};
+            box-shadow:inset 0px 0px 0px 2px ${color.b700}};
           }
         `;
     };
@@ -129,13 +126,15 @@ const StyledButton = styled('button')<ButtonProps>`
     switch (props.disabled) {
       case true:
         return `
-          color: ${color.g300};
+          color: ${color.g400};
           background-color: ${color.g100};
+          box-shadow: none;
           cursor: not-allowed;
 
           &:hover {
-            color: ${color.g300};
+            color: ${color.g400};
             background-color: ${color.g100};
+            box-shadow: none;
           }
         `;
     }
