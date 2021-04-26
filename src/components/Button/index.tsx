@@ -53,6 +53,11 @@ const StyledButton = styled('button')<ButtonProps>`
   cursor: pointer;
   overflow: hidden;
 
+  & span {
+    position: relative;
+    z-index: 2;
+  }
+
   ${props => {
     switch (props.variant) {
       case 'filled':

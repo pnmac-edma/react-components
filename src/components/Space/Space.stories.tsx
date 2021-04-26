@@ -1,4 +1,3 @@
-import React from 'react';
 import { Story, Meta } from '@storybook/react';
 import Space, { SpaceProps } from '../Space';
 
@@ -7,7 +6,7 @@ export default {
   component: Space,
 } as Meta;
 
-const Template: Story<SpaceProps> = (args) => <Space {...args}><div>Child</div><div>Child</div><div>Child</div></Space>;
+const Template: Story<SpaceProps> = (args) => <Space {...args}><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div><div style={{'border': '1px solid black'}}>Child</div></Space>;
 
 export const Playground = Template.bind({});
 Playground.args = {};
@@ -29,5 +28,6 @@ InnerAndOuter.args = {
 export const Custom = Template.bind({});
 Custom.args = {
     outer: [24, 0, 0, 80],
-    inner: 24
+    inner: [24, 16],
+    wrap: true
 };

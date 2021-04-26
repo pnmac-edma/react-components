@@ -1,3 +1,4 @@
+import { DocsPage } from 'storybook-addon-deps/blocks';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -7,4 +8,6 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  docs: { page: DocsPage },
+  dependencies: { withStoriesOnly: true, hideEmpty: true }
 }

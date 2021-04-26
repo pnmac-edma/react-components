@@ -3,9 +3,10 @@ import styled, { CSSProperties } from 'styled-components';
 import { spacing } from '@edma/design-tokens';
 
 export interface SpaceProps {
-  inner?: boolean | 'default' | 'small' | 'medium' | 'large' | number | undefined;
-  outer?: boolean | 'small' | 'medium' | 'large' | [number, number, number, number] | undefined;
+  inner?: boolean | 'default' | 'small' | 'medium' | 'large' | number | number[] | undefined;
+  outer?: boolean | 'small' | 'medium' | 'large' | number[] | undefined;
   direction?: 'column' | 'row';
+  wrap?: boolean;
   style?: CSSProperties;
   className?: string;
   children: React.ReactNode;
@@ -15,6 +16,7 @@ const Space: React.FC<SpaceProps> = ({
   inner = 'default',
   outer,
   direction = 'row',
+  wrap = false,
   children,
   style,
   className
@@ -25,6 +27,7 @@ const Space: React.FC<SpaceProps> = ({
       inner={inner ? inner : undefined}
       outer={outer ? outer : undefined}
       direction={direction ? direction : 'row'}
+      wrap={wrap ? wrap : undefined}
       style={style ? style : undefined}
       className={className ? className : ''}
     >
@@ -39,14 +42,21 @@ const Space: React.FC<SpaceProps> = ({
 const StyledSpace = styled('div')<SpaceProps>`
   display: flex;
   flex-direction: ${props => props.direction};
+  flex-wrap: ${props => props.wrap ? 'wrap' : 'no-wrap'};
   justify-content: start;
   & > .Space__child {
     margin: ${props => props.inner && props.direction === 'row' ?
+      props.inner instanceof Array ? `
+        0
+        ${props.inner[0]}px
+        ${props.inner[1]}px
+        0
+      ` :
       typeof props.inner === 'number' ? `
         0
-        ${props.inner / 2}px
+        ${props.inner}px
         0
-        ${props.inner / 2}px
+        0
       ` :
       props.inner === 'small' ||
       props.inner === true ||
@@ -55,10 +65,16 @@ const StyledSpace = styled('div')<SpaceProps>`
       props.inner === 'large' ? `0 ${spacing[3]}` : 0
     :
     props.inner && props.direction === 'column' ?
-      typeof props.inner === 'number' ? `
-        ${props.inner / 2}px
+      props.inner instanceof Array ? `
         0
-        ${props.inner / 2}px
+        0
+        ${props.inner[0]}px
+        0
+      ` :
+      typeof props.inner === 'number' ? `
+        0
+        0
+        ${props.inner}px
         0
       ` :
       props.inner === 'small' ||
