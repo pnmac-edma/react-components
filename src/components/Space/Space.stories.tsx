@@ -3,7 +3,7 @@ import Space, { SpaceProps } from '../Space';
 import Button from '../Button';
 
 export default {
-  title: 'Atoms/Space',
+  title: 'Layout/Space',
   component: Space,
 } as Meta;
 

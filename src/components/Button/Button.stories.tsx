@@ -3,7 +3,7 @@ import Button, { ButtonProps } from '../Button';
 import { withDesign } from 'storybook-addon-designs';
 
 export default {
-  title: 'Atoms/Button',
+  title: 'Data Entry/Button',
   component: Button,
   decorators: [withDesign],
 } as Meta;

@@ -11,8 +11,9 @@ export interface ButtonProps {
   className?: string;
   disabled?: boolean;
   onClick?: () => void;
-  label: any;
   ariaLabel?: string;
+  label?: string;
+  children: any;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -25,7 +26,8 @@ const Button: React.FC<ButtonProps> = ({
   disabled = false,
   onClick,
   ariaLabel,
-  label
+  label,
+  children
 }: ButtonProps) => {
 
   return (
@@ -33,15 +35,15 @@ const Button: React.FC<ButtonProps> = ({
       primary={primary ? primary : false}
       variant={variant ? variant : 'default'}
       type={type ? type : undefined}
-      aria-label={ariaLabel ? ariaLabel : label}
+      aria-label={ariaLabel ? ariaLabel : label ? label : children}
       size={size ? size : 'medium'}
       className={className ? className : undefined}
       disabled={disabled ? disabled : undefined}
       onClick={onClick ? onClick : undefined}
       fullWidth={fullWidth ? fullWidth : undefined}
-      label={label}
+      label={label ? label : undefined}
     >
-      <span>{label}</span>
+      <span>{label ? label : children}</span>
     </StyledButton>
   )
 };
