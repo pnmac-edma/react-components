@@ -1,7 +1,9 @@
-import Button from './components/Button';
+import Button from './src/components/Button';
+import Space from './src/components/Space';
 
-declare module '@edma/react/';
+declare module '@edma/components/';
 
 export {
     Button,
+    Space
 }

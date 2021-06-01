@@ -54,6 +54,7 @@ const StyledButton = styled('button')<ButtonProps>`
   border: 0;
   width: ${(props) => props.fullWidth ? '100%' : 'auto'};
   cursor: pointer;
+  outline: none;
   overflow: hidden;
 
   & span {
@@ -81,6 +82,7 @@ const StyledButton = styled('button')<ButtonProps>`
         `;
     }
   }};
+
   ${(props) => {
     switch (props.primary) {
       case true:
@@ -105,6 +107,7 @@ const StyledButton = styled('button')<ButtonProps>`
         `;
     };
   }};
+
   ${(props) => {
     switch (props.size) {
       case 'small':
@@ -124,6 +127,7 @@ const StyledButton = styled('button')<ButtonProps>`
         `;
     }
   }};
+
   ${(props) => {
     switch (props.disabled) {
       case true:
