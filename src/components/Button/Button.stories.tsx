@@ -19,7 +19,7 @@ Primary.args = {
 Primary.parameters = {
   design: {
     type: 'figma',
-    url: 'https://www.figma.com/file/hhRwCxtuZb27X3XFI03rqZ/Kirby-Patterns?node-id=496%3A10835',
+    url: 'https://www.figma.com/file/sgsKxzIyitxWI30F9EKr6T/Components?node-id=496%3A10835',
   }
 }
 
